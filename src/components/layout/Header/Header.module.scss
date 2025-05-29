@@ -1,0 +1,107 @@
+.header {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+
+    &:hover {
+      color: #dc2626;
+    }
+  }
+
+  .nav {
+    display: none;
+
+    &.active {
+      display: block;
+      position: absolute;
+      top: 5rem;
+      left: 0;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      display: block;
+      position: static;
+      box-shadow: none;
+      background-color: transparent;
+    }
+  }
+
+  .navList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 2rem;
+      padding: 0;
+    }
+  }
+
+  .navLink {
+    color: #4a5568;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #dc2626;
+    }
+
+    &.active {
+      color: #1e3a8a;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: #1e3a8a;
+        transform: scaleX(0.8);
+      }
+    }
+  }
+
+  .menuButton {
+    display: block;
+    padding: 0.5rem;
+    color: #4a5568;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #dc2626;
+    }
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+} // ← Эта закрывающая скобка должна быть только одна в конце файла

@@ -1,0 +1,84 @@
+/* app/components/layout/Header/styles.module.css */
+.header {
+  @apply bg-white shadow-sm fixed w-full top-0 z-50;
+}
+
+.headerContainer {
+  @apply container mx-auto px-4 py-3 flex justify-between items-center;
+}
+
+.logoLink {
+  @apply flex items-center;
+}
+
+.logo {
+  @apply w-[200px] h-auto md:w-[300px];
+}
+
+.desktopNav {
+  @apply hidden md:block;
+}
+
+.navList {
+  @apply flex space-x-8;
+}
+
+.navItem {
+  @apply relative;
+}
+
+.navLink {
+  @apply text-gray-800 hover:text-blue-600 transition-colors text-lg font-medium;
+}
+
+.mobileMenuWrapper {
+  @apply md:hidden;
+}
+
+.menuToggle {
+  @apply p-2;
+}
+
+.menuIcon {
+  @apply w-8 h-8 relative cursor-pointer;
+}
+
+.menuIcon span {
+  @apply block absolute h-[3px] w-full bg-gray-800 rounded-lg transition-all duration-300;
+}
+
+.menuIcon span:nth-child(1) {
+  @apply top-1;
+}
+
+.menuIcon span:nth-child(2) {
+  @apply top-3;
+}
+
+.menuIcon span:nth-child(3) {
+  @apply top-5;
+}
+
+.menuIcon.open span:nth-child(1) {
+  @apply top-3 rotate-45;
+}
+
+.menuIcon.open span:nth-child(2) {
+  @apply opacity-0;
+}
+
+.menuIcon.open span:nth-child(3) {
+  @apply top-3 -rotate-45;
+}
+
+.mobileNav {
+  @apply absolute top-full left-0 right-0 bg-white shadow-lg py-4;
+}
+
+.mobileNavList {
+  @apply space-y-4 px-4;
+}
+
+.mobileNavLink {
+  @apply block py-2 text-gray-800 hover:text-blue-600 text-lg;
+}

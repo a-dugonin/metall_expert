@@ -1,0 +1,116 @@
+/* globals.scss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Базовые стили */
+html {
+  scroll-behavior: smooth;
+  @apply text-[16px] md:text-[18px];
+}
+
+body {
+  @apply bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-sans antialiased;
+}
+
+/* Главный фон для хедера и hero-секции */
+.hero-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 5rem;
+
+  /* Убираем затемнение - оставляем ТОЛЬКО легкое размытие */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  /* Тонкая граница для разделения */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* Полупрозрачная подложка БЕЗ изменения яркости */
+  background-color: rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 768px) {
+    height: 4rem;
+    backdrop-filter: blur(1px); // Еще менее заметное размытие на мобильных
+    -webkit-backdrop-filter: blur(1px);
+  }
+}
+
+.hero-root {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('/images/hero-bg.jpg') center/cover no-repeat fixed;
+
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+  }
+}
+
+.hero-content {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  // Убрали дополнительный затемняющий слой
+}
+
+/* Дополнительные утилиты */
+@layer components {
+  .metal-border {
+    @apply border border-opacity-20 border-gray-400;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg
+           hover:bg-primary-dark transition-colors;
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.shadow-industrial {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* Логотип */
+.logo-overlay {
+  opacity: 0.95;
+  filter:
+    drop-shadow(0 0 8px rgba(0, 0, 0, 0.5))
+    drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    pointer-events: none;
+  }
+}
+
+/* Оптимизация анимаций */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
