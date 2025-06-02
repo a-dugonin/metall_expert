@@ -42,15 +42,15 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.mail.ru';
     $mail->SMTPAuth = true;
-    $mail->Username = 'a_dugonin@mail.ru';
-    $mail->Password = 'Qe9KpMTSA3YsP8fKBZdZ';
+    $mail->Username = 'mail@mail.ru';
+    $mail->Password = 'pass';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
     $mail->CharSet = 'UTF-8';
 
     // Настройка письма
-    $mail->setFrom('a_dugonin@mail.ru', 'Металл-Эксперт');
-    $mail->addAddress('a_dugonin@mail.ru', 'Менеджер');
+    $mail->setFrom('mail@mail.ru', 'Металл-Эксперт');
+    $mail->addAddress('mail@mail.ru', 'Менеджер');
     if (!empty($data['email'])) {
         $mail->addReplyTo($data['email'], $data['name']);
     }
