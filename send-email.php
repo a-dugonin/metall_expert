@@ -42,11 +42,7 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.mail.ru';
     $mail->SMTPAuth = true;
-<<<<<<< HEAD
     $mail->Username = 'mail@mail.ru';
-=======
-    $mail->Username = 'mail@mail.ru';
->>>>>>> 60a3c44 (Изменил send-mail)
     $mail->Password = 'pass';
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
